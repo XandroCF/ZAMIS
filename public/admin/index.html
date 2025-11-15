@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Tienda Zamis - Admin</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body{font-family:Inter,Arial;margin:20px;background:#f5f7fb}
+    .card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.06);margin-bottom:16px}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:8px;border-bottom:1px solid #eee;text-align:left}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .btn{padding:8px 12px;border-radius:8px;border:0;background:#0b5ed7;color:#fff;cursor:pointer}
+  </style>
+</head>
+<body>
+  <h1>Tienda Zamis - Panel</h1>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Iniciar sesión</h2>
+      <form id="loginForm">
+        <input name="correo" placeholder="Correo" required /><br><br>
+        <input type="password" name="contraseña" placeholder="Contraseña" required /><br><br>
+        <button class="btn">Ingresar</button>
+      </form>
+      <div id="loginMsg"></div>
+    </div>
+
+    <div class="card">
+      <h2>Operaciones rápidas</h2>
+      <button id="btnLoadProducts" class="btn">Cargar Productos</button>
+      <button id="btnLoadPagos" class="btn">Cargar Pagos</button>
+    </div>
+  </div>
+
+  <div id="content"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

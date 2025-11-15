@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tienda Zamis</title>
+  <meta name="description" content="Tienda Zamis – miscelánea online con productos variados." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="site">
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 10c3-6 11-6 14 0-3 6-11 6-14 0Z" stroke="#111827" stroke-opacity=".6" stroke-width="1.6"/>
+            <path d="M9 14c2.2 3.5 6.8 3.5 9 0" stroke="#111827" stroke-opacity=".6" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <h1 aria-label="Tienda Zamis">Tienda Zamis</h1>
+      </div>
+
+      <button class="btn menu-btn" id="openMenu" aria-label="Abrir menú">☰</button>
+      <nav>
+        <ul id="menu">
+          <li><a href="#inicio" class="active">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><button class="btn" id="openCart" aria-label="Abrir carrito">🛒 <span id="cartCount">0</span></button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio" class="hero">
+    <div class="container hero-grid">
+      <div class="mock" role="img" aria-label="Imagen decorativa de portada"></div>
+      <div>
+        <span class="chip">Miscelánea online • Envíos hoy</span>
+        <h2>Bienvenido a <strong>Tienda Zamis</strong></h2>
+        <p>Variedad de productos desde cargadores, estetica, y articulos para el hogar. Todo en un solo lugar, con entregas rápidas.</p>
+        <div style="display:flex; gap:.6rem; align-items:center">
+          <button class="btn btn-primary" id="verProductos">Ver productos</button>
+          <button class="btn" id="ofertasBtn">Ver ofertas</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section id="productos" class="section">
+    <div class="container">
+      <h3>Productos</h3>
+      <div class="toolbar">
+        <div class="controls">
+          <input class="input" id="q" type="search" placeholder="Buscar… (ej. cargadores)" aria-label="Buscar" />
+          <select id="cat" aria-label="Categoría">
+            <option value="">Todas las categorías</option>
+            <option value="Ropa">Ropa</option>
+            <option value="Tecnologia">Tecnologia</option>
+            <option value="Hogar">Hogar</option>
+            <option value="Belleza">Belleza</option>
+          </select>
+          <select id="sort" aria-label="Ordenar">
+            <option value="relevancia">Relevancia</option>
+            <option value="precio-asc">Precio: bajo a alto</option>
+            <option value="precio-desc">Precio: alto a bajo</option>
+            <option value="nombre">Nombre A→Z</option>
+          </select>
+        </div>
+        <div class="help" id="countHelp">0 resultados</div>
+      </div>
+
+      <div class="grid" id="grid" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="contacto" class="section" aria-labelledby="h-contacto">
+    <div class="container">
+      <h3 id="h-contacto">Contacto</h3>
+      <form id="form" class="form" novalidate>
+        <div class="row">
+          <div>
+            <label for="nombre">Nombre</label>
+            <input class="input" type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div>
+            <label for="email">Correo electrónico</label>
+            <input class="input" type="email" id="email" name="email" placeholder="tu@correo.com" required />
+          </div>
+        </div>
+        <div>
+          <label for="mensaje">Mensaje</label>
+          <textarea class="input" id="mensaje" name="mensaje" placeholder="¿En qué podemos ayudarte?" required></textarea>
+        </div>
+        <div style="display:flex; gap:.6rem; align-items:center">
+          <button class="btn btn-primary" type="submit">Enviar</button>
+          <span class="help">Respondemos en menos de 24 h.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <p>© <span id="year"></span> Tienda Zamis • Hecho con ♥</p>
+      <a href="#inicio" class="btn" aria-label="Volver arriba">▲ Arriba</a>
+    </div>
+  </footer>
+
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Carrito">
+    <div class="drawer-header">
+      <strong>Tu carrito</strong>
+      <button class="btn" id="closeCart" aria-label="Cerrar carrito">✕</button>
+    </div>
+    <div class="drawer-body" id="cartList"></div>
+    <div style="padding:16px; border-top:1px solid #e9edf2; display:flex; justify-content:space-between; align-items:center">
+      <strong>Total: <span id="cartTotal">$0</span></strong>
+      <button class="btn btn-primary" id="checkout">Pagar</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="archivo.js "></script>
+</body>
+</html>
